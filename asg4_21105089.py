@@ -7,16 +7,19 @@ print("problem of tower of Hanoi with three disks.")
 print("")
 print("SOL 1. :- Solution the problem of tower of Hanoi with three disks.")
 print("")
+no_of_count=0
 def hanoi(n, fro, to, aux):
+    global no_of_count
     if n == 0:
         return
-    
+    no_of_count+=1
     hanoi(n-1, fro, aux, to)
     print(f"Move Disk {n} from {fro} to {to}")
     hanoi(n-1, aux, to, fro)
 
 #calling funtion for 3 disks
 hanoi(3, 'A', 'C', 'B')
+print("Number of counts : %d" % (no_of_count))
 print("")
 ###########################################################################################################################################################
 print('Question2')
@@ -37,7 +40,7 @@ for i in range(0,n):
         f=int(factorial(i) / (factorial(w)*factorial(i-w)))
         print(f,'',end='')
     print('')
-print('Without recursion using loops to get factorial')    
+print('With iteration')    
 for l in range(n) :  
            for e in range(l,n+1):
                print(' ',end='')
@@ -106,7 +109,7 @@ print('')
 print('Question 4')
 print('')
 ##creating a class
-class Student:   ###Creating class with constuctor and destructor
+class Student:          ###Creating class with constuctor and destructor
     def __init__(self,name,roll_number):
         self.name=name           
         self.roll_number=roll_number
@@ -116,9 +119,10 @@ class Student:   ###Creating class with constuctor and destructor
 
 
 s1=Student('Adarsh Mandloi',21105089) ## creating a class and feeding data into it
-print(s1.name)
-print(s1.roll_number)
-del s1      ## deleting the object s1
+print('Name of s1:',s1.name)
+print('Roll number of s1:',s1.roll_number)
+del s1   ## deleting the object s1
+print('Object s1 deleted') 
 print('')
 ##############################################################################################################################################################
 print('Question 5')
@@ -127,15 +131,22 @@ class Employee:
     def __init__(self,name,salary):
         self.name=name
         self.salary=salary
+    def input_data(self):
+        print('%s is an employee having salary %d'%(self.name,self.salary))
 e1=Employee('Mehak',40000) 
 e2=Employee('Ashok',50000)   
 e3=Employee('Viren',60000)
+##Printing the data entered for different object
+## using for loop
+for i in [e1,e2,e3]:
+              i.input_data()
+              
 print('Part a')
 e1.salary=70000 ## Updating the salary
-print('Updated salary :',e1.salary)
+print('Updated salary of Mehak is  :',e1.salary)
 print('Part b')
+print('Deleted the record of %s with salary %d'%(e3.name,e3.salary))
 del e3   # deleting the object e3
-print('e3 object deleted')
 print('')
 ##############################################################################################################################################################33
 print('Question 6')
